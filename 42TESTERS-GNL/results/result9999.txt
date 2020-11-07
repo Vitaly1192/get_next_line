@@ -1,0 +1,22 @@
+
+==========================================
+========== TEST 1 : The Alphabet =========
+==========================================
+
+|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+
+Not Good - Wrong Number Of Lines
+
+==========================================
+========= TEST 2 : Empty Lines ===========
+==========================================
+
+|Cette ligne se termine par un point.
+
+Not Good - Wrong Number Of Lines
+
+==========================================
+======== TEST 3 : The Empty File =========
+==========================================
+
+|Cette ligne se termine par un point.
