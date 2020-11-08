@@ -2,18 +2,49 @@
 #include <stdio.h>
 #include <fcntl.h> // open()
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	(void)	argc;
-	(void)	argv;
 	int 	fd;
 	char	*line;
 
 	line = (char *)malloc(1000);
-	if ((fd = open("test1", O_RDWR)) != -1)
-		while (get_next_line(fd, &line) == 1)
-			printf("%s\n", line);
-	close(fd);
-	// while (1);
+	fd = open("test1", O_RDONLY);
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	get_next_line(fd, &line);
+	printf("%s\n", line);
+
+	// get_next_line(fd, &line);
+	// printf("%s\n", line);
+
+	printf("%d\n", get_next_line(fd, &line));
+	
+	printf("%d\n", get_next_line(fd, &line));
+
+	printf("%d\n", get_next_line(fd, &line));
+
+	printf("END\n");
 	return (0);
 }

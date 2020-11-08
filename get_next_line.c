@@ -1,22 +1,13 @@
 #include "get_next_line.h"
 #include <stdio.h>
-// #define BUFFER_SIZE 
 
-// 1 –– всё прочитано, записано и конец файла не был достигнут
-// 0 –– линия прочитана, записана, но  файл закончился (была полседняя строчка)
-// -1 –– в случаии любой ошибки, fd -–– испорчиный или не смогли аллоцировать память
+/**
+** 1 –– всё прочитано, записано и конец файла не был достигнут
+** 0 –– линия прочитана, записана, но  файл закончился (была полседняя строчка)
+** -1 –– в случаии любой ошибки, fd -–– испорчиный или не смогли аллоцировать память
+**/
 
-size_t		ft_strlen(const char *str)
-{
-	char const *str_cpy;
-
-	str_cpy = str;
-	while (*str != '\0')
-		str++;
-	return (str - str_cpy);
-}
-
-char	*ft_strjoin_to_newline(char const *s1, char const *s2)
+char	*ft_strjoin_to_newline_and_free(char *s1, char *s2)
 {
 	char	*str;
 	size_t	k;
@@ -25,12 +16,15 @@ char	*ft_strjoin_to_newline(char const *s1, char const *s2)
 		return (NULL);
 	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (str == NULL)
+	{
+		free(s1);
 		return (NULL);
+	}
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	k = 0;
-	while (*s1 != '\0')
+	while (s1[k] != '\0')
 	{
-		*str++ = *s1++;
+		*str++ = s1[k];
 		k++;
 	}
 	while (*s2 != '\0' && *s2 != '\n')
@@ -38,70 +32,64 @@ char	*ft_strjoin_to_newline(char const *s1, char const *s2)
 		*str++ = *s2++;
 		k++;
 	}
+	free(s1);
 	return (str - k);
 }
 
 int	get_next_line(int fd, char **line)
 {
-	char	*array;
-	int		f;
-	int		r;
-	int		k;
-	char	*cur_str;
+	static	char	*last_str;
+	char			*array;
+	char			*ptr_chr;
+	int				f;
+	int				r;
+	int				k;
 
- // read(fd, array, 0) == -1
 	if (fd < 0 || line == NULL)
 		return (-1);
-	f = 1;
-	array = (char *)malloc(BUFFER_SIZE + 1);
+	array = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (array == NULL)
 		return (-1);
-	array[BUFFER_SIZE] = '\0';
-	while ((r = read(fd, array, BUFFER_SIZE)) != 0)
+	if (last_str)
 	{
-		if (r == 0)
-			return (0);
+		if ((ptr_chr = ft_strchr(last_str, '\n')))
+			{
+				*ptr_chr = '\0';
+				*line = ft_strdup(last_str);
+				last_str = ft_strdup(ptr_chr + 1);
+				if (ft_strchr(last_str, '\n') == NULL)
+					return (0);
+				else
+					return (1);
+			}
+			else
+				*line = ft_strdup(last_str);
+	}
+	else
+		*line = ft_strdup("");
+	f = 1;
+	while (f != 0 && (r = read(fd, array, BUFFER_SIZE)) != 0)
+	{
+		if (r == -1)
+			return (-1);
 		array[r] = '\0';
-		k = 0;
-		cur_str = *line;
-		*line = ft_strjoin_to_newline(*line, array);
-		free(cur_str);
+		*line = ft_strjoin_to_newline_and_free(*line, array);
 		if (*line == NULL)
 		{
 			free(array);
 			return (-1);
 		}
-		while (k != r)
+		k = 0;
+		ptr_chr = ft_strchr(array, '\n');
+		if (ptr_chr != NULL)
 		{
-			if (array[k] == '\n')
-				return (1);
-			k++;
+			f = 0;
+			free(last_str);
+			last_str = ft_strdup(ptr_chr + 1);
+			if (last_str == NULL)
+				return (-1);
 		}
-		
-		// k = 0;
-		// while (array[k] != '\n' && k < BUFFER_SIZE)
-		// 	k++;
-		// if (array[k] != '\n')
-		// {
-		// 	f = -1; // конец строки не найден, возвращаем -1
-		// 	continue ;
-		// }
-		// else
-		// {
-		// 	f = 0;
-		// 	*line = (char *)malloc(k + 1);
-		// 	if (*line == NULL)
-		// 		return (-1);
-		// 	k = 0;
-		// 	while (k != BUFFER_SIZE && array[k] != '\n')
-		// 	{
-		// 		line[0][k] = array[k];
-		// 		k++;
-		// 	}
-		// 	(*line)[BUFFER_SIZE] = '\0';
-		// 	f = 1;
-		// }
 	}
-	return (f);
+	return (0);
 }
 //leaks a.out
