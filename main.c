@@ -6,35 +6,38 @@ int	main(void)
 {
 	int 	fd;
 	char	*line;
+	int		ret;
+
 
 	line = (char *)malloc(1000);
 	fd = open("test1", O_RDONLY);
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
-	get_next_line(fd, &line);
-	printf("%s\n", line);
+	ret = get_next_line(fd, &line);
+	printf("%s| ret = (%d)\n", line, ret);
 
 	// get_next_line(fd, &line);
 	// printf("%s\n", line);

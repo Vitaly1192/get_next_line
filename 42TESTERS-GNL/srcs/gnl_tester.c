@@ -67,10 +67,12 @@ int main()
 	}
 	while ((i = get_next_line(fd, &line)) > 0)
 	{
+		printf("\n(%d)\n", i);
 		printf("|%s\n", line);
 		free(line);
 		j++;
 	}
+	// printf("\ni = (%d)\n", i);
 	printf("|%s\n", line);
 	free(line);
 	close(fd);

@@ -4,13 +4,6 @@
 ==========================================
 
 |AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
-
-Not Good - Wrong Number Of Lines
-
-==========================================
-========= TEST 2 : Empty Lines ===========
-==========================================
-
 |BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb
 |CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
 |DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
@@ -79,10 +72,25 @@ Not Good - Wrong Number Of Lines
 Not Good - Wrong Number Of Lines
 
 ==========================================
+========= TEST 2 : Empty Lines ===========
+==========================================
+
+|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNnCette ligne se termine par un point.DDDDDDDDDd
+|La ligne suivante est vide.
+|
+|Les 2 lignes suivantes sont vides
+|
+|
+|Et encore les 2 suivantes.
+|
+
+Not Good - Wrong Number Of Lines
+
+==========================================
 ======== TEST 3 : The Empty File =========
 ==========================================
 
-|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNn
+|
 
 Right number of lines
 
@@ -90,14 +98,18 @@ Right number of lines
 ========= TEST 4 : One New Line ==========
 ==========================================
 
-|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNnL
+|
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 5 : Four New Lines ========
 ==========================================
 
+|
+|
+|
 |
 
 Not Good - Wrong Number Of Lines
@@ -106,18 +118,17 @@ Not Good - Wrong Number Of Lines
 ============== TEST 6 : 42 ===============
 ==========================================
 
-|
-|
-|
+|answer to life the universe and everythin
 |answer to life the universe and everything
 |answer to life the universe and everything-
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ============= TEST 7 : Marge =============
 ==========================================
 
+   OOOO
  OOOOOOOOO
 OOOOOOOOOOOO
 OOOOOOOOOOOOO
@@ -127,7 +138,19 @@ OOOOOOOOOOOOOO
  OOOOOOOOOOOOOO
  OOOOOOOOOOOOOO
   OOOOOOOOOOOOOO
+    OOOOOOOOOOOOOO
   OOOOOOOOOOOOOO
+   OOOOOOOOOOOOOO
+   OOOOOOOOOOOOOO
+   OOOOO \_| \_|O
+   OOOO \/  \/  \
+   OOOO (o   )o  )
+   O/c   \__/ --.
+   O\_   ,     -'
+    O|  '\_______)
+     |       _)
+     |      |
+     oooooooo
 
 Not Good - Wrong Number Of Lines
 

@@ -12,6 +12,8 @@ size_t		ft_strlen(const char *str);
 
 char		*ft_strchr(char *str, int c);
 
+char		*ft_strrchr(const char *str, int c);
+
 char		*ft_strdup(const char *str);
 
 #endif

@@ -4,6 +4,10 @@
 ==========================================
 
 |AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb
+|CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
+|DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+|EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
 
 Not Good - Wrong Number Of Lines
 
@@ -11,7 +15,9 @@ Not Good - Wrong Number Of Lines
 ========= TEST 2 : Empty Lines ===========
 ==========================================
 
-|BBBBBBBCette ligne se termine par un point.
+|FFFCette ligne se termine par un point.
+|La ligne suivante est vide.
+|
 
 Not Good - Wrong Number Of Lines
 
@@ -19,7 +25,7 @@ Not Good - Wrong Number Of Lines
 ======== TEST 3 : The Empty File =========
 ==========================================
 
-|La li
+|Les 2 lignes suiva
 
 Right number of lines
 
@@ -27,14 +33,18 @@ Right number of lines
 ========= TEST 4 : One New Line ==========
 ==========================================
 
-|La li
+|
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 5 : Four New Lines ========
 ==========================================
 
+|
+|
+|
 |
 
 Not Good - Wrong Number Of Lines
@@ -43,20 +53,20 @@ Not Good - Wrong Number Of Lines
 ============== TEST 6 : 42 ===============
 ==========================================
 
-|
-|
-|
+|answer to life the universe and everythin
 |answer to life the universe and everything
 |answer to life the universe and everything-
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ============= TEST 7 : Marge =============
 ==========================================
 
+   OOOOP
  OOOOOOOOO
-OOOOOOOOOOOO
+OOOOOOOOOO  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
 
 Not Good - Wrong Number Of Lines
 

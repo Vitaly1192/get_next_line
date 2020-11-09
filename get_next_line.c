@@ -7,7 +7,7 @@
 ** -1 –– в случаии любой ошибки, fd -–– испорчиный или не смогли аллоцировать память
 **/
 
-char	*ft_strjoin_to_newline_and_free(char *s1, char *s2)
+char	*ft_strjoin_to_endline_and_free(char *s1, char *s2)
 {
 	char	*str;
 	size_t	k;
@@ -50,30 +50,41 @@ int	get_next_line(int fd, char **line)
 	array = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (array == NULL)
 		return (-1);
-	if (last_str)
+
+
+
+	if (last_str != NULL)
 	{
 		if ((ptr_chr = ft_strchr(last_str, '\n')))
 			{
 				*ptr_chr = '\0';
 				*line = ft_strdup(last_str);
 				last_str = ft_strdup(ptr_chr + 1);
-				if (ft_strchr(last_str, '\n') == NULL)
-					return (0);
-				else
+				if (ft_strchr(last_str, '\n') != NULL)
+				{
 					return (1);
+				}
+				else if (ft_strchr(last_str, '\n') == ft_strrchr(last_str, '\n')) // FIX IT
+					return (0);
 			}
 			else
+			{
 				*line = ft_strdup(last_str);
+				last_str = NULL; // надо ли?
+			}
 	}
 	else
 		*line = ft_strdup("");
+
+
+
 	f = 1;
 	while (f != 0 && (r = read(fd, array, BUFFER_SIZE)) != 0)
 	{
 		if (r == -1)
 			return (-1);
 		array[r] = '\0';
-		*line = ft_strjoin_to_newline_and_free(*line, array);
+		*line = ft_strjoin_to_endline_and_free(*line, array);
 		if (*line == NULL)
 		{
 			free(array);
@@ -90,6 +101,6 @@ int	get_next_line(int fd, char **line)
 				return (-1);
 		}
 	}
-	return (0);
+	return (!f);
 }
 //leaks a.out

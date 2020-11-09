@@ -4,14 +4,81 @@
 ==========================================
 
 |AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb
+|CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
+|DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+|EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+|FFFFFFFFFFFFFFFFFFFFFFFFFFFFfD
+|GGGGGGGGGGGGGGGGGGGGGGGGGGGg
+|HHHHHHHHHHHHHHHHHHHHHHHHHHh
+|IIIIIIIIIIIIIIIIIIIIIIIIIi
+|JJJJJJJJJJJJJJJJJJJJJJJJj
+|KKKKKKKKKKKKKKKKKKKKKKKk
+|LLLLLLLLLLLLLLLLLLLLLLlJ
+|MMMMMMMMMMMMMMMMMMMMMm
+|NNNNNNNNNNNNNNNNNNNNn
+|OOOOOOOOOOOOOOOOOOOo
+|PPPPPPPPPPPPPPPPPPp
+|QQQQQQQQQQQQQQQQQq
+|RRRRRRRRRRRRRRRRr
+|SSSSSSSSSSSSSSSs
+|TTTTTTTTTTTTTTt
+|UUUUUUUUUUUUUu
+|VVVVVVVVVVVVv
+|WWWWWWWWWWWw
+|XXXXXXXXXXx
+|YYYYYYYYYy
+|ZZZZZZZZz
+|AAAAAAAa
+|BBBBBBb
+|CCCCCc
+|DDDDd
+|EEEe
+|FFf
+|Gg
+|h
+|Ii
+|JJj
+|KKKk
+|LLLLl
+|MMMMMm
+|NNNNNNn
+|OOOOOOOo
+|PPPPPPPPp
+|QQQQQQQQQq
+|RRRRRRRRRRr
+|SSSSSSSSSSSs
+|TTTTTTTTTTTTt
+|UUUUUUUUUUUUUu
+|VVVVVVVVVVVVVVv
+|WWWWWWWWWWWWWWWw
+|XXXXXXXXXXXXXXXXx
+|YYYYYYYYYYYYYYYYYy
+|ZZZZZZZZZZZZZZZZZZz
+|AAAAAAAAAAAAAAAAAAAa
+|BBBBBBBBBBBBBBBBBBBBb
+|CCCCCCCCCCCCCCCCCCCCCc
+|DDDDDDDDDDDDDDDDDDDDDDd
+|EEEEEEEEEEEEEEEEEEEEEEEe
+|FFFFFFFFFFFFFFFFFFFFFFFFf
+|GGGGGGGGGGGGGGGGGGGGGGGGGg
+|HHHHHHHHHHHHHHHHHHHHHHHHHHh
+|IIIIIIIIIIIIIIIIIIIIIIIIIIIi
+|JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+|KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk
+|LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl
+|MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
+|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNn
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 2 : Empty Lines ===========
 ==========================================
 
-|BCette ligne se termine par un point.AAA
+|Cette ligne se termine par un point.XXX
+|La ligne suivante est vide.un
+|
 
 Not Good - Wrong Number Of Lines
 
@@ -19,7 +86,7 @@ Not Good - Wrong Number Of Lines
 ======== TEST 3 : The Empty File =========
 ==========================================
 
-|La
+|
 
 Right number of lines
 
@@ -27,14 +94,17 @@ Right number of lines
 ========= TEST 4 : One New Line ==========
 ==========================================
 
-|La
+|
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 5 : Four New Lines ========
 ==========================================
 
+|
+|
 |
 
 Not Good - Wrong Number Of Lines
@@ -43,20 +113,43 @@ Not Good - Wrong Number Of Lines
 ============== TEST 6 : 42 ===============
 ==========================================
 
-|
-|
+|answer to life the universe and everythin
 |answer to life the universe and everything
 |answer to life the universe and everything-
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ============= TEST 7 : Marge =============
 ==========================================
 
+   OOOO`"
+ OOOOOOOOOäÄú
+OOOOOOOOOOOOú
+OOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO€
+ OOOOOOOOOOOOOO€
+ OOOOOOOOOOOOOOÐ
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
    OOOOOOOOOOOOOO
+   OOOOOOOOOOOOOO
+   OOOOO \_| \_|O
+   OOOO \/  \/  \
+   OOOO (o   )o  )
+   O/c   \__/ --.
+   O\_   ,     -'
+    O|  '\_______)z
+     |       _)P
+     |      |
+     oooooooo
+    /        \
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 8 : Wrong Input ===========
