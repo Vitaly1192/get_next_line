@@ -7,14 +7,14 @@
 |BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb
 |CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
 |DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
-|EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
-|FFFFFFFFFFFFFFFFFFFFFFFFFFFFfD
+|EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+|FFFFFFFFFFFFFFFFFFFFFFFFFFFFf
 |GGGGGGGGGGGGGGGGGGGGGGGGGGGg
 |HHHHHHHHHHHHHHHHHHHHHHHHHHh
 |IIIIIIIIIIIIIIIIIIIIIIIIIi
 |JJJJJJJJJJJJJJJJJJJJJJJJj
 |KKKKKKKKKKKKKKKKKKKKKKKk
-|LLLLLLLLLLLLLLLLLLLLLLlJ
+|LLLLLLLLLLLLLLLLLLLLLLl
 |MMMMMMMMMMMMMMMMMMMMMm
 |NNNNNNNNNNNNNNNNNNNNn
 |OOOOOOOOOOOOOOOOOOOo
@@ -76,11 +76,17 @@ Right number of lines
 ========= TEST 2 : Empty Lines ===========
 ==========================================
 
-|Cette ligne se termine par un point.XXX
-|La ligne suivante est vide.un
+|Cette ligne se termine par un point.
+|La ligne suivante est vide.
+|
+|Les 2 lignes suivantes sont vides
+|
+|
+|Et encore les 2 suivantes.
+|
 |
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ======== TEST 3 : The Empty File =========
@@ -106,8 +112,10 @@ Right number of lines
 |
 |
 |
+|
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ============== TEST 6 : 42 ===============
@@ -123,19 +131,19 @@ Right number of lines
 ============= TEST 7 : Marge =============
 ==========================================
 
-   OOOO`"
- OOOOOOOOOäÄú
-OOOOOOOOOOOOú
-OOOOOOOOOOOOO
+   OOOO
+ OOOOOOOOO
+OOOOOOOOOOOO
+OOOOOOOOOOOOO
 OOOOOOOOOOOOOO
 OOOOOOOOOOOOOO
- OOOOOOOOOOOOOO€
- OOOOOOOOOOOOOO€
- OOOOOOOOOOOOOOÐ
-  OOOOOOOOOOOOOO
-  OOOOOOOOOOOOOO
-  OOOOOOOOOOOOOO
-  OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
    OOOOOOOOOOOOOO
    OOOOOOOOOOOOOO
    OOOOO \_| \_|O
@@ -143,9 +151,9 @@ OOOOOOOOOOOOOO
    OOOO (o   )o  )
    O/c   \__/ --.
    O\_   ,     -'
-    O|  '\_______)z
-     |       _)P
-     |      |
+    O|  '\_______)
+     |       _)
+     |      |
      oooooooo
     /        \
 

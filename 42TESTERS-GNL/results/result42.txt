@@ -8,24 +8,91 @@
 |CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
 |DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
 |EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+|FFFFFFFFFFFFFFFFFFFFFFFFFFFFf
+|GGGGGGGGGGGGGGGGGGGGGGGGGGGg
+|HHHHHHHHHHHHHHHHHHHHHHHHHHh
+|IIIIIIIIIIIIIIIIIIIIIIIIIi
+|JJJJJJJJJJJJJJJJJJJJJJJJj
+|KKKKKKKKKKKKKKKKKKKKKKKk
+|LLLLLLLLLLLLLLLLLLLLLLl
+|MMMMMMMMMMMMMMMMMMMMMm
+|NNNNNNNNNNNNNNNNNNNNn
+|OOOOOOOOOOOOOOOOOOOo
+|PPPPPPPPPPPPPPPPPPp
+|QQQQQQQQQQQQQQQQQq
+|RRRRRRRRRRRRRRRRr
+|SSSSSSSSSSSSSSSs
+|TTTTTTTTTTTTTTt
+|UUUUUUUUUUUUUu
+|VVVVVVVVVVVVv
+|WWWWWWWWWWWw
+|XXXXXXXXXXx
+|YYYYYYYYYy
+|ZZZZZZZZz
+|AAAAAAAa
+|BBBBBBb
+|CCCCCc
+|DDDDd
+|EEEe
+|FFf
+|Gg
+|h
+|Ii
+|JJj
+|KKKk
+|LLLLl
+|MMMMMm
+|NNNNNNn
+|OOOOOOOo
+|PPPPPPPPp
+|QQQQQQQQQq
+|RRRRRRRRRRr
+|SSSSSSSSSSSs
+|TTTTTTTTTTTTt
+|UUUUUUUUUUUUUu
+|VVVVVVVVVVVVVVv
+|WWWWWWWWWWWWWWWw
+|XXXXXXXXXXXXXXXXx
+|YYYYYYYYYYYYYYYYYy
+|ZZZZZZZZZZZZZZZZZZz
+|AAAAAAAAAAAAAAAAAAAa
+|BBBBBBBBBBBBBBBBBBBBb
+|CCCCCCCCCCCCCCCCCCCCCc
+|DDDDDDDDDDDDDDDDDDDDDDd
+|EEEEEEEEEEEEEEEEEEEEEEEe
+|FFFFFFFFFFFFFFFFFFFFFFFFf
+|GGGGGGGGGGGGGGGGGGGGGGGGGg
+|HHHHHHHHHHHHHHHHHHHHHHHHHHh
+|IIIIIIIIIIIIIIIIIIIIIIIIIIIi
+|JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+|KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk
+|LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl
+|MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
+|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNn
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 2 : Empty Lines ===========
 ==========================================
 
-|FFFCette ligne se termine par un point.
+|Cette ligne se termine par un point.
 |La ligne suivante est vide.
 |
+|Les 2 lignes suivantes sont vides
+|
+|
+|Et encore les 2 suivantes.
+|
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ======== TEST 3 : The Empty File =========
 ==========================================
 
-|Les 2 lignes suiva
+|
 
 Right number of lines
 
@@ -46,8 +113,9 @@ Right number of lines
 |
 |
 |
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ============== TEST 6 : 42 ===============
@@ -63,12 +131,33 @@ Right number of lines
 ============= TEST 7 : Marge =============
 ==========================================
 
-   OOOOP
+   OOOO
  OOOOOOOOO
-OOOOOOOOOO  OOOOOOOOOOOOOO
+OOOOOOOOOOOO
+OOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
   OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+   OOOOOOOOOOOOOO
+   OOOOOOOOOOOOOO
+   OOOOO \_| \_|O
+   OOOO \/  \/  \
+   OOOO (o   )o  )
+   O/c   \__/ --.
+   O\_   ,     -'
+    O|  '\_______)
+     |       _)
+     |      |
+     oooooooo
+    /        \
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 8 : Wrong Input ===========

@@ -77,3 +77,32 @@ char	*ft_strdup(const char *str)
 		}
 	return (dup);
 }
+
+char	*ft_strjoin_to_endline_and_free(char *s1, char *s2)
+{
+	char	*str;
+	size_t	k;
+
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (str == NULL)
+	{
+		free(s1);
+		return (NULL);
+	}
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	k = 0;
+	while (s1[k] != '\0')
+	{
+		*str++ = s1[k];
+		k++;
+	}
+	while (*s2 != '\0' && *s2 != '\n')
+	{
+		*str++ = *s2++;
+		k++;
+	}
+	free(s1);
+	return (str - k);
+}

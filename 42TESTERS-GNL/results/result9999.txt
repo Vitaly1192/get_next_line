@@ -68,14 +68,15 @@
 |KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk
 |LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl
 |MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
+|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNn
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 2 : Empty Lines ===========
 ==========================================
 
-|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNnCette ligne se termine par un point.DDDDDDDDDd
+|Cette ligne se termine par un point.
 |La ligne suivante est vide.
 |
 |Les 2 lignes suivantes sont vides
@@ -83,8 +84,9 @@ Not Good - Wrong Number Of Lines
 |
 |Et encore les 2 suivantes.
 |
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ======== TEST 3 : The Empty File =========
@@ -111,8 +113,9 @@ Right number of lines
 |
 |
 |
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ============== TEST 6 : 42 ===============
@@ -138,7 +141,8 @@ OOOOOOOOOOOOOO
  OOOOOOOOOOOOOO
  OOOOOOOOOOOOOO
   OOOOOOOOOOOOOO
-    OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
   OOOOOOOOOOOOOO
    OOOOOOOOOOOOOO
    OOOOOOOOOOOOOO
@@ -151,8 +155,9 @@ OOOOOOOOOOOOOO
      |       _)
      |      |
      oooooooo
+    /        \
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ========= TEST 8 : Wrong Input ===========

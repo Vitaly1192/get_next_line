@@ -16,4 +16,6 @@ char		*ft_strrchr(const char *str, int c);
 
 char		*ft_strdup(const char *str);
 
+char	*ft_strjoin_to_endline_and_free(char *s1, char *s2);
+
 #endif

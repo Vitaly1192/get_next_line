@@ -4,24 +4,24 @@
 ==========================================
 
 |AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
-|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb¸
+|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb
 |CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
 |DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
 |EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
 |FFFFFFFFFFFFFFFFFFFFFFFFFFFFf
-|GGGGGGGGGGGGGGGGGGGGGGGGGGGgf
+|GGGGGGGGGGGGGGGGGGGGGGGGGGGg
 |HHHHHHHHHHHHHHHHHHHHHHHHHHh
 |IIIIIIIIIIIIIIIIIIIIIIIIIi
 |JJJJJJJJJJJJJJJJJJJJJJJJj
-|KKKKKKKKKKKKKKKKKKKKKKKkj
+|KKKKKKKKKKKKKKKKKKKKKKKk
 |LLLLLLLLLLLLLLLLLLLLLLl
 |MMMMMMMMMMMMMMMMMMMMMm
 |NNNNNNNNNNNNNNNNNNNNn
-|OOOOOOOOOOOOOOOOOOOon
+|OOOOOOOOOOOOOOOOOOOo
 |PPPPPPPPPPPPPPPPPPp
 |QQQQQQQQQQQQQQQQQq
 |RRRRRRRRRRRRRRRRr
-|SSSSSSSSSSSSSSSs
+|SSSSSSSSSSSSSSSs
 |TTTTTTTTTTTTTTt
 |UUUUUUUUUUUUUu
 |VVVVVVVVVVVVv
@@ -67,7 +67,7 @@
 |JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
 |KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk
 |LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl
-|MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMmMM
+|MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
 |NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNn
 
 Right number of lines
@@ -76,11 +76,17 @@ Right number of lines
 ========= TEST 2 : Empty Lines ===========
 ==========================================
 
-|Cette ligne se termine par un point.˚
-|La ligne suivante est vide.un
+|Cette ligne se termine par un point.
+|La ligne suivante est vide.
+|
+|Les 2 lignes suivantes sont vides
+|
+|
+|Et encore les 2 suivantes.
+|
 |
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ======== TEST 3 : The Empty File =========
@@ -105,8 +111,11 @@ Right number of lines
 
 |
 |
+|
+|
+|
 
-Not Good - Wrong Number Of Lines
+Right number of lines
 
 ==========================================
 ============== TEST 6 : 42 ===============
@@ -122,19 +131,19 @@ Right number of lines
 ============= TEST 7 : Marge =============
 ==========================================
 
-   OOOO‡
- OOOOOOOOO¸˚
-OOOOOOOOOOOO˚
+   OOOO
+ OOOOOOOOO
+OOOOOOOOOOOO
 OOOOOOOOOOOOO
 OOOOOOOOOOOOOO
 OOOOOOOOOOOOOO
- OOOOOOOOOOOOOO‡
- OOOOOOOOOOOOOO‡
- OOOOOOOOOOOOOOê
-  OOOOOOOOOOOOOO
-  OOOOOOOOOOOOOO
-  OOOOOOOOOOOOOO
-  OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
    OOOOOOOOOOOOOO
    OOOOOOOOOOOOOO
    OOOOO \_| \_|O
@@ -142,10 +151,10 @@ OOOOOOOOOOOOOO
    OOOO (o   )o  )
    O/c   \__/ --.
    O\_   ,     -'
-    O|  '\_______)B
+    O|  '\_______)
      |       _)
-     |      |
-     oooooooo
+     |      |
+     oooooooo
     /        \
 
 Right number of lines
