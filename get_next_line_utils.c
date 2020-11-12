@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dwinky <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/12 22:00:00 by dwinky            #+#    #+#             */
+/*   Updated: 2020/11/12 22:01:17 by dwinky           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-void	*ft_calloc(size_t number, size_t size)
+void		*ft_calloc(size_t number, size_t size)
 {
 	unsigned char	*point;
 	size_t			k;
@@ -25,7 +37,7 @@ size_t		ft_strlen(const char *str)
 	return (str - str_cpy);
 }
 
-char	*ft_strchr(char *str, int c)
+char		*ft_strchr(char *str, int c)
 {
 	size_t	k;
 
@@ -41,7 +53,7 @@ char	*ft_strchr(char *str, int c)
 	return (NULL);
 }
 
-char	*ft_strrchr(const char *str, int c)
+char		*ft_strrchr(const char *str, int c)
 {
 	size_t		k;
 	char		ch;
@@ -61,8 +73,7 @@ char	*ft_strrchr(const char *str, int c)
 	return ((char *)p_ch);
 }
 
-
-char	*ft_strdup(const char *str)
+char		*ft_strdup(const char *str)
 {
 	size_t	k;
 	char	*dup;
@@ -76,33 +87,4 @@ char	*ft_strdup(const char *str)
 			k++;
 		}
 	return (dup);
-}
-
-char	*ft_strjoin_to_endline_and_free(char *s1, char *s2)
-{
-	char	*str;
-	size_t	k;
-
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (str == NULL)
-	{
-		free(s1);
-		return (NULL);
-	}
-	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	k = 0;
-	while (s1[k] != '\0')
-	{
-		*str++ = s1[k];
-		k++;
-	}
-	while (*s2 != '\0' && *s2 != '\n')
-	{
-		*str++ = *s2++;
-		k++;
-	}
-	free(s1);
-	return (str - k);
 }
