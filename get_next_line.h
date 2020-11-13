@@ -16,6 +16,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# if BUFFER_SIZE > 1000000
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 int			get_next_line(int fd, char **line);
 
 void		*ft_calloc(size_t number, size_t size);

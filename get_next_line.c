@@ -15,9 +15,15 @@
 
 /*
 ** 1 –– всё прочитано, записано и конец файла не был достигнут
-** 0 –– линия прочитана, записана, но  файл закончился (была полседняя строчка)
+** 0 –– линия прочитана, записана, но  файл закончился (была последняя строчка)
 ** -1 –– при любой ошибки: fd –– испорчиный, не смогли аллоцировать память и тд.
 */
+
+void	free_and_set_null(char **str)
+{
+	free(*str);
+	*str = NULL;
+}
 
 char	*ft_strjoin_to_endline_and_free(char **s1, char *s2)
 {
@@ -49,106 +55,74 @@ char	*ft_strjoin_to_endline_and_free(char **s1, char *s2)
 
 int		get_next_line(int fd, char **line)
 {
-	static	char	*s_last_str = NULL;
+	static	char	*s_tail = NULL;
 	char			*array;
-	char			*ptr_chr;
-	int				f;
+	char			*find_end;
 	int				r;
 
 	if (fd < 0 || line == NULL)
 		return (-1);
-	if (s_last_str != NULL)
+	if (s_tail != NULL && (find_end = ft_strchr(s_tail, '\n')))
 	{
-		if ((ptr_chr = ft_strchr(s_last_str, '\n')))
-			{
-				*ptr_chr = '\0';
-				*line = ft_strdup(s_last_str);
-				if (*line == NULL)
-				{
-					free(s_last_str);
-					return (-1);
-				}
-				free(s_last_str);
-				s_last_str = ft_strdup(ptr_chr + 1);
-				if (s_last_str == NULL)
-					return (-1);
-				return (1);
-			}
-			else
-			{
-				*line = ft_strdup(s_last_str);
-				free(s_last_str);
-				s_last_str = NULL;
-			}
+		*find_end = '\0';
+		*line = ft_strdup(s_tail);
+		if (*line == NULL)
+		{
+			free(s_tail);
+			return (-1);
+		}
+		// free(s_tail); // надо это очистить, но после strdup()
+		s_tail = ft_strdup(find_end + 1);
+		if (s_tail == NULL)
+			return (-1);
+		return (1);
+	}
+	else if (s_tail != NULL)
+	{
+		*line = ft_strdup(s_tail);
+		free_and_set_null(&s_tail);
 	}
 	else
 		*line = (char *)ft_calloc(1, 1);
 	if (*line == NULL)
 	{
-		free(s_last_str);
-		s_last_str = NULL;
+		free_and_set_null(&s_tail);
 		return (-1);
 	}
-	array = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	if (array == NULL)
+	if ((array = (char *)malloc(BUFFER_SIZE + 1)) == NULL)
 	{
-		free(s_last_str);
-		s_last_str = NULL;
+		free_and_set_null(&s_tail);
 		return (-1);
 	}
-	f = 1;
-	while (f != 0 && (r = read(fd, array, BUFFER_SIZE)) != 0)
+	find_end = NULL;
+	while (!find_end && (r = read(fd, array, BUFFER_SIZE)) != 0)
 	{
 		if (r == -1)
 		{
 			free(array);
-			free(s_last_str);
-			array = NULL;
-			s_last_str = NULL;
+			free_and_set_null(&s_tail);
 			return (-1);
 		}
 		array[r] = '\0';
-		if ((ptr_chr = ft_strchr(array, '\n')) != NULL)
+		if ((find_end = ft_strchr(array, '\n')) != NULL)
 		{
-			f = 0;
-			*ptr_chr = '\0';
-			free(s_last_str);
-			s_last_str = ft_strdup(ptr_chr + 1);
-			if (s_last_str == NULL)
+			*find_end = '\0';
+			free(s_tail);
+			s_tail = ft_strdup(find_end + 1);
+			if (s_tail == NULL)
 			{
 				free(array);
-				free(s_last_str);
-				array = NULL;
-				s_last_str = NULL;
+				free_and_set_null(&s_tail);
 				return (-1);
 			}
 		}
-		*line = ft_strjoin_to_endline_and_free(line, array);
-		if (*line == NULL)
+		if ((*line = ft_strjoin_to_endline_and_free(line, array)) == NULL)
 		{
 			free(array);
-			free(s_last_str);
-			array = NULL;
-			s_last_str = NULL;
+			free_and_set_null(&s_tail);
 			return (-1);
 		}
 	}
-	if (r == 0)
-	{
-			free(*line);
-			*line = ft_strdup("");
-			free(array);
-			free(s_last_str);
-			array = NULL;
-			s_last_str = NULL;
-			return (0);
-	}
 	free(array);
-	// printf("*line 		|%p\n", *line);
-	// printf("array 		|%p\n", array);
-	// printf("s_last_str	|%p\n", s_last_str);
-	// free(array);
-	return (!f);
+	return (find_end == NULL ? 0 : 1);
 }
-
-/* leaks a.out */
