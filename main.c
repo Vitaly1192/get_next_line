@@ -9,9 +9,9 @@ int	main(void)
 	char	*line;
 
 	fd = open("test1", O_RDONLY);
-	while ((j = get_next_line(2, &line)) >= 0)
+	while ((j = get_next_line(fd, &line)) >= 0)
 	{
-		printf("|%s|\n", line);
+		printf("%s\n", line);
 		free(line);
 		if (j == 0)
 			break;
@@ -20,6 +20,7 @@ int	main(void)
 	// while (--j > 0)
 	// 	free(lineadress[j - 1]);
 	printf("END\n");
-	// while (1);
+	//while (1);
+	scanf("%d", &fd);
 	return (0);
 }

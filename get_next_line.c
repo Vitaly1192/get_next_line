@@ -19,10 +19,12 @@
 ** -1 –– при любой ошибки: fd –– испорчиный, не смогли аллоцировать память и тд.
 */
 
-void	free_and_set_null(char **str)
+int	ft_clear(char **str, char *str2)
 {
 	free(*str);
 	*str = NULL;
+	free(str2);
+	return (-1);
 }
 
 char	*ft_strjoin_to_endline_and_free(char **s1, char *s2)
@@ -49,80 +51,87 @@ char	*ft_strjoin_to_endline_and_free(char **s1, char *s2)
 		*str++ = *s2++;
 		k++;
 	}
-	free(*s1);
+	ft_clear(s1, NULL);
 	return (str - k);
 }
 
-int		get_next_line(int fd, char **line)
+int		check_tail(char **line, char **s_tail, char **find_end, char **array)
 {
-	static	char	*s_tail = NULL;
-	char			*array;
-	char			*find_end;
-	int				r;
+	char	*cur_ptr;
 
-	if (fd < 0 || line == NULL)
-		return (-1);
-	if (s_tail != NULL && (find_end = ft_strchr(s_tail, '\n')))
+	cur_ptr = NULL;
+	if ((*s_tail) != NULL && (*find_end = ft_strchr(*s_tail, '\n')))
 	{
-		*find_end = '\0';
-		*line = ft_strdup(s_tail);
-		if (*line == NULL)
-		{
-			free(s_tail);
+		*(*find_end) = '\0';
+		if (!(*line = ft_strdup(*s_tail)))
+			return (ft_clear(s_tail, NULL));
+		cur_ptr = *s_tail;
+		if (!(*s_tail = ft_strdup(*find_end + 1)) && ft_clear(&cur_ptr, NULL))
 			return (-1);
-		}
-		// free(s_tail); // надо это очистить, но после strdup()
-		s_tail = ft_strdup(find_end + 1);
-		if (s_tail == NULL)
-			return (-1);
+		ft_clear(&cur_ptr, NULL);
 		return (1);
 	}
-	else if (s_tail != NULL)
+	else if (*s_tail != NULL)
 	{
-		*line = ft_strdup(s_tail);
-		free_and_set_null(&s_tail);
+		*line = ft_strdup(*s_tail);
+		ft_clear(s_tail, NULL);
 	}
 	else
 		*line = (char *)ft_calloc(1, 1);
-	if (*line == NULL)
+	if (*line == NULL || !(*array = (char *)malloc(BUFFER_SIZE + 1)))
+		return (ft_clear(s_tail, NULL));
+	return (2);
+}
+
+int		set_line(char **array, char **s_tail)
+{
+	char	*find_end;
+
+	if ((find_end = ft_strchr(*array, '\n')) != NULL)
 	{
-		free_and_set_null(&s_tail);
-		return (-1);
+		*find_end = '\0';
+		free(*s_tail);
+		if (!(*s_tail = ft_strdup(find_end + 1)))
+			return (ft_clear(s_tail, *array));
 	}
-	if ((array = (char *)malloc(BUFFER_SIZE + 1)) == NULL)
-	{
-		free_and_set_null(&s_tail);
-		return (-1);
-	}
+	return (1);
+}
+int		get_next_line(int fd, char **line)
+{
+	static	char	*s_tail = NULL;
+	char			*array = NULL;
+	char			*find_end;
+	int				r;
+
 	find_end = NULL;
-	while (!find_end && (r = read(fd, array, BUFFER_SIZE)) != 0)
+	if (fd < 0 || line == NULL || read(fd, find_end, 0) < 0 || BUFFER_SIZE <= 0)
+		return (-1);
+	if ((r = check_tail(line, &s_tail, &find_end, &array)) == -1)
+		return (-1);
+	else if (r == 1)
+		return (1);
+	while (!find_end && (r = read(fd, array, BUFFER_SIZE)) > 0)
 	{
-		if (r == -1)
-		{
-			free(array);
-			free_and_set_null(&s_tail);
-			return (-1);
-		}
 		array[r] = '\0';
+		
 		if ((find_end = ft_strchr(array, '\n')) != NULL)
 		{
 			*find_end = '\0';
 			free(s_tail);
-			s_tail = ft_strdup(find_end + 1);
-			if (s_tail == NULL)
-			{
-				free(array);
-				free_and_set_null(&s_tail);
-				return (-1);
-			}
+			if (!(s_tail = ft_strdup(find_end + 1)))
+				return (ft_clear(&s_tail, array));
 		}
+		// if (set_line(&array, &s_tail) == -1)
+		// 	return (-1);
 		if ((*line = ft_strjoin_to_endline_and_free(line, array)) == NULL)
-		{
-			free(array);
-			free_and_set_null(&s_tail);
-			return (-1);
-		}
+			return (ft_clear(&s_tail, array));
 	}
+	if (r < 0)
+		return (ft_clear(&s_tail, array));
 	free(array);
-	return (find_end == NULL ? 0 : 1);
+	return (r == 0 ? 0 : 1);
 }
+
+/*
+** return (find_end == NULL ? 0 : 1);
+*/

@@ -1,1 +1,12 @@
-111
+
+test for the get_next_line project at school 42. (cursus42, november 2019) mainly combinatory tricky tests :)
+
+1/ copy the 3 files get_next_line.c get_next_line_utils.c s"
+
+2/ in the root directory, 
+
+3/ GNL_lover does a nice little check on the multi fd at the very end of this script. it also helps the corrector for different correction key points: - read function is using the BUFFER_SIZE defined value. - no global - works with BUFFER_SIZE=1 (many tests) - works with BUFFER_SIZE=1024 - single static variable is used? (bonus)
+
+4/ keep
+
+5/ what it does technicaly. 
