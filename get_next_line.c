@@ -19,7 +19,7 @@
 ** -1 –– при любой ошибки: fd –– испорчиный, не смогли аллоцировать память и тд.
 */
 
-int	ft_clear(char **str, char *str2)
+int		ft_clear(char **str, char *str2)
 {
 	free(*str);
 	*str = NULL;
@@ -83,23 +83,22 @@ int		check_tail(char **line, char **s_tail, char **find_end, char **array)
 	return (2);
 }
 
-int		set_line(char **array, char **s_tail)
+int		set_line(char **array, char **s_tail, char **find_end)
 {
-	char	*find_end;
-
-	if ((find_end = ft_strchr(*array, '\n')) != NULL)
+	if ((*find_end = ft_strchr(*array, '\n')) != NULL)
 	{
-		*find_end = '\0';
+		*(*find_end) = '\0';
 		free(*s_tail);
-		if (!(*s_tail = ft_strdup(find_end + 1)))
+		if (!(*s_tail = ft_strdup(*find_end + 1)))
 			return (ft_clear(s_tail, *array));
 	}
 	return (1);
 }
+
 int		get_next_line(int fd, char **line)
 {
 	static	char	*s_tail = NULL;
-	char			*array = NULL;
+	char			*array;
 	char			*find_end;
 	int				r;
 
@@ -113,16 +112,8 @@ int		get_next_line(int fd, char **line)
 	while (!find_end && (r = read(fd, array, BUFFER_SIZE)) > 0)
 	{
 		array[r] = '\0';
-		
-		if ((find_end = ft_strchr(array, '\n')) != NULL)
-		{
-			*find_end = '\0';
-			free(s_tail);
-			if (!(s_tail = ft_strdup(find_end + 1)))
-				return (ft_clear(&s_tail, array));
-		}
-		// if (set_line(&array, &s_tail) == -1)
-		// 	return (-1);
+		if (set_line(&array, &s_tail, &find_end) == -1)
+			return (-1);
 		if ((*line = ft_strjoin_to_endline_and_free(line, array)) == NULL)
 			return (ft_clear(&s_tail, array));
 	}

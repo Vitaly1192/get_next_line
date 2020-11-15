@@ -8,19 +8,70 @@ int	main(void)
 	int		j;
 	char	*line;
 
-	fd = open("test1", O_RDONLY);
+	printf("##################################################\n");
+
+	fd = open("test_one_line_with_endl", O_RDONLY);
 	while ((j = get_next_line(fd, &line)) >= 0)
 	{
-		printf("%s\n", line);
+		printf("|%s|\n", line);
 		free(line);
 		if (j == 0)
 			break;
 	}
 	close(fd);
-	// while (--j > 0)
-	// 	free(lineadress[j - 1]);
-	printf("END\n");
-	//while (1);
+
+	printf("##################################################\n");
+	
+	fd = open("test_empty_file", O_RDONLY);
+	while ((j = get_next_line(fd, &line)) >= 0)
+	{
+		printf("|%s|\n", line);
+		free(line);
+		if (j == 0)
+			break;
+	}
+	close(fd);
+
+	printf("##################################################\n");
+
+	fd = open("test_only_one_line", O_RDONLY);
+	while ((j = get_next_line(fd, &line)) >= 0)
+	{
+		printf("|%s|\n", line);
+		free(line);
+		if (j == 0)
+			break;
+	}
+	close(fd);
+
+	printf("##################################################\n");
+
+	fd = open("test_a_lot_of_empty_lines", O_RDONLY);
+	while ((j = get_next_line(fd, &line)) >= 0)
+	{
+		free(line);
+		if (j == 0)
+			break;
+	}
+	close(fd);
+
+	printf("##################################################\n");
+
+	fd = open("test_big_file", O_RDONLY);
+	while ((j = get_next_line(fd, &line)) >= 0)
+	{
+		free(line);
+		printf("|%s|\n", line);
+		if (j == 0)
+			break;
+	}
+	close(fd);
+
+	printf("##################################################\n");
+	
+	printf("=========\n");
+	printf("===END===\n");
+	printf("=========\n");
 	scanf("%d", &fd);
 	return (0);
 }

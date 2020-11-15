@@ -16,22 +16,22 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// # if BUFFER_SIZE > 1000000
-// #  undef BUFFER_SIZE
-// #  define BUFFER_SIZE 32
-// # endif
-int			get_next_line(int fd, char **line);
+void	*ft_calloc(size_t number, size_t size);
 
-void		*ft_calloc(size_t number, size_t size);
+size_t	ft_strlen(const char *str);
 
-size_t		ft_strlen(const char *str);
+char	*ft_strchr(char *str, int c);
 
-char		*ft_strchr(char *str, int c);
+char	*ft_strdup(const char *str);
 
-char		*ft_strrchr(const char *str, int c);
+int		ft_clear(char **str, char *str2);
 
-char		*ft_strdup(const char *str);
+char	*ft_strjoin_to_endline_and_free(char **s1, char *s2);
 
-char		*ft_strjoin_to_endline_and_free(char **s1, char *s2);
+int		check_tail(char **line, char **s_tail, char **find_end, char **array);
+
+int		set_line(char **array, char **s_tail, char **find_end);
+
+int		get_next_line(int fd, char **line);
 
 #endif

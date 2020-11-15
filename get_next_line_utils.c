@@ -53,26 +53,6 @@ char		*ft_strchr(char *str, int c)
 	return (NULL);
 }
 
-char		*ft_strrchr(const char *str, int c)
-{
-	size_t		k;
-	char		ch;
-	const char	*p_ch;
-
-	p_ch = NULL;
-	ch = (char)c;
-	k = 0;
-	while (*(str + k) != '\0')
-	{
-		if (*(str + k) == ch)
-			p_ch = str + k;
-		k++;
-	}
-	if (*(str + k) == ch)
-		return ((char *)(str + k));
-	return ((char *)p_ch);
-}
-
 char		*ft_strdup(const char *str)
 {
 	size_t	k;
