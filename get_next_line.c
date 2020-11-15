@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 /*
 ** 1 –– всё прочитано, записано и конец файла не был достигнут
@@ -73,7 +72,8 @@ int		check_tail(char **line, char **s_tail, char **find_end, char **array)
 	}
 	else if (*s_tail != NULL)
 	{
-		*line = ft_strdup(*s_tail);
+		if ((*line = ft_strdup(*s_tail)) == NULL)
+			return (ft_clear(s_tail, NULL));
 		ft_clear(s_tail, NULL);
 	}
 	else
@@ -122,7 +122,3 @@ int		get_next_line(int fd, char **line)
 	free(array);
 	return (r == 0 ? 0 : 1);
 }
-
-/*
-** return (find_end == NULL ? 0 : 1);
-*/
