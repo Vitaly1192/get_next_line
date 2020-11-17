@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /*
 ** 1 –– всё прочитано, записано и конец файла не был достигнут
@@ -97,7 +97,7 @@ int		set_line(char **array, char **s_tail, char **find_end)
 
 int		get_next_line(int fd, char **line)
 {
-	static	char	*s_tail = NULL;
+	static	char	*s_tail[1024];
 	char			*array;
 	char			*find_end;
 	int				r;
@@ -105,20 +105,20 @@ int		get_next_line(int fd, char **line)
 	if (line == NULL || read(fd, NULL, 0) < 0 || BUFFER_SIZE <= 0)
 		return (-1);
 	find_end = NULL;
-	if ((r = check_tail(line, &s_tail, &find_end)) != 2)
+	if ((r = check_tail(line, (s_tail + fd), &find_end)) != 2)
 		return (r);
 	if (!(array = (char *)malloc(BUFFER_SIZE + 1)))
-		return (ft_error(&s_tail, NULL));
+		return (ft_error(s_tail + fd, NULL));
 	while (!find_end && (r = read(fd, array, BUFFER_SIZE)) > 0)
 	{
 		array[r] = '\0';
-		if (set_line(&array, &s_tail, &find_end) == -1)
+		if (set_line(&array, s_tail + fd, &find_end) == -1)
 			return (-1);
 		if ((*line = ft_strjoin_to_new_line_and_free(line, array)) == NULL)
-			return (ft_error(&s_tail, array));
+			return (ft_error(s_tail + fd, array));
 	}
 	free(array);
 	if (r == -1)
-		return (ft_error(&s_tail, NULL));
+		return (ft_error(s_tail + fd, NULL));
 	return (r == 0 ? 0 : 1);
 }

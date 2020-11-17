@@ -4,10 +4,30 @@
 
 int	main(void)
 {
-	int 	fd;
-	int		j;
+	// int 	fd;
+	// int		j;
 	char	*line;
 
+	int fd1 = open("test1", O_RDONLY);
+	int fd2 = open("test2", O_RDONLY);
+	
+	get_next_line(fd1, &line);
+	printf("|%s|\n", line);
+	get_next_line(fd2, &line);
+	printf("|%s|\n", line);
+	get_next_line(fd1, &line);
+	printf("|%s|\n", line);
+	get_next_line(fd2, &line);
+	printf("|%s|\n", line);
+	get_next_line(fd1, &line);
+	printf("|%s|\n", line);
+	get_next_line(fd2, &line);
+	printf("|%s|\n", line);
+	get_next_line(fd1, &line);
+	printf("|%s|\n", line);
+	get_next_line(fd2, &line);
+	printf("|%s|\n", line);
+	/*
 	printf("##################################################\n");
 
 	fd = open("test_one_line_with_endl", O_RDONLY);
@@ -68,10 +88,10 @@ int	main(void)
 	close(fd);
 
 	printf("##################################################\n");
-	
+	*/
 	printf("=========\n");
 	printf("===END===\n");
 	printf("=========\n");
-	scanf("%d", &fd);
+	// scanf("%d", &fd);
 	return (0);
 }
