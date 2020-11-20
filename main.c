@@ -4,8 +4,8 @@
 
 int	main(void)
 {
-	// int 	fd;
-	// int		j;
+	int 	fd;
+	int		j;
 	char	*line;
 
 	int fd1 = open("test1", O_RDONLY);
@@ -13,21 +13,29 @@ int	main(void)
 	
 	get_next_line(fd1, &line);
 	printf("|%s|\n", line);
+	free(line);
 	get_next_line(fd2, &line);
 	printf("|%s|\n", line);
+	free(line);
 	get_next_line(fd1, &line);
 	printf("|%s|\n", line);
+	free(line);
 	get_next_line(fd2, &line);
 	printf("|%s|\n", line);
+	free(line);
 	get_next_line(fd1, &line);
 	printf("|%s|\n", line);
+	free(line);
 	get_next_line(fd2, &line);
 	printf("|%s|\n", line);
+	free(line);
 	get_next_line(fd1, &line);
 	printf("|%s|\n", line);
+	free(line);
 	get_next_line(fd2, &line);
 	printf("|%s|\n", line);
-	/*
+	free(line);
+	
 	printf("##################################################\n");
 
 	fd = open("test_one_line_with_endl", O_RDONLY);
@@ -88,10 +96,10 @@ int	main(void)
 	close(fd);
 
 	printf("##################################################\n");
-	*/
+	
 	printf("=========\n");
 	printf("===END===\n");
 	printf("=========\n");
-	// scanf("%d", &fd);
+	 scanf("%d", &fd);
 	return (0);
 }
