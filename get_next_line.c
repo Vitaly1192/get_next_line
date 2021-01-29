@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:59:43 by dwinky            #+#    #+#             */
-/*   Updated: 2020/11/17 14:23:53 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/01/29 15:45:17 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,49 +55,49 @@ char	*ft_strjoin_to_new_line_and_free(char **s1, char *s2)
 	return (str - k);
 }
 
-int		check_tail(char **line, char **s_tail, char **find_end)
+int		check_tail(char **line, char **tail, char **find_end)
 {
 	char	*cur_ptr;
 
 	cur_ptr = NULL;
-	if ((*s_tail) != NULL && (*find_end = ft_strchr(*s_tail, '\n')))
+	if ((*tail) != NULL && (*find_end = ft_strchr(*tail, '\n')))
 	{
 		*(*find_end) = '\0';
-		if (!(*line = ft_strdup(*s_tail)))
-			return (ft_error(s_tail, NULL));
-		cur_ptr = *s_tail;
-		if (!(*s_tail = ft_strdup(*find_end + 1)))
+		if (!(*line = ft_strdup(*tail)))
+			return (ft_error(tail, NULL));
+		cur_ptr = *tail;
+		if (!(*tail = ft_strdup(*find_end + 1)))
 			return (ft_error(&cur_ptr, NULL));
 		ft_clear_tail(&cur_ptr);
 		return (1);
 	}
-	else if (*s_tail != NULL)
+	else if (*tail != NULL)
 	{
-		if ((*line = ft_strdup(*s_tail)) == NULL)
-			return (ft_error(s_tail, NULL));
-		ft_clear_tail(s_tail);
+		if ((*line = ft_strdup(*tail)) == NULL)
+			return (ft_error(tail, NULL));
+		ft_clear_tail(tail);
 	}
-	else if (*s_tail == NULL)
+	else if (*tail == NULL)
 		if ((*line = ft_strdup("")) == NULL)
-			return (ft_error(s_tail, NULL));
+			return (ft_error(tail, NULL));
 	return (2);
 }
 
-int		set_line(char **array, char **s_tail, char **find_end)
+int		set_line(char **array, char **tail, char **find_end)
 {
 	if ((*find_end = ft_strchr(*array, '\n')) != NULL)
 	{
 		*(*find_end) = '\0';
-		free(*s_tail);
-		if (!(*s_tail = ft_strdup(*find_end + 1)))
-			return (ft_error(s_tail, *array));
+		free(*tail);
+		if (!(*tail = ft_strdup(*find_end + 1)))
+			return (ft_error(tail, *array));
 	}
 	return (1);
 }
 
 int		get_next_line(int fd, char **line)
 {
-	static	char	*s_tail = NULL;
+	static	char	*tail = NULL;
 	char			*array;
 	char			*find_end;
 	int				r;
@@ -105,20 +105,20 @@ int		get_next_line(int fd, char **line)
 	if (line == NULL || read(fd, NULL, 0) < 0 || BUFFER_SIZE <= 0)
 		return (-1);
 	find_end = NULL;
-	if ((r = check_tail(line, &s_tail, &find_end)) != 2)
+	if ((r = check_tail(line, &tail, &find_end)) != 2)
 		return (r);
 	if (!(array = (char *)malloc(BUFFER_SIZE + 1)))
-		return (ft_error(&s_tail, NULL));
+		return (ft_error(&tail, NULL));
 	while (!find_end && (r = read(fd, array, BUFFER_SIZE)) > 0)
 	{
 		array[r] = '\0';
-		if (set_line(&array, &s_tail, &find_end) == -1)
+		if (set_line(&array, &tail, &find_end) == -1)
 			return (-1);
 		if ((*line = ft_strjoin_to_new_line_and_free(line, array)) == NULL)
-			return (ft_error(&s_tail, array));
+			return (ft_error(&tail, array));
 	}
 	free(array);
 	if (r == -1)
-		return (ft_error(&s_tail, NULL));
+		return (ft_error(&tail, NULL));
 	return (r == 0 ? 0 : 1);
 }
