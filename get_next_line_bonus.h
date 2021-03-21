@@ -6,7 +6,7 @@
 /*   By: dwinky <dwinky@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 21:59:52 by dwinky            #+#    #+#             */
-/*   Updated: 2021/03/21 22:44:00 by dwinky           ###   ########.fr       */
+/*   Updated: 2021/03/21 22:48:30 by dwinky           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
 
 void	*ft_calloc(size_t number, size_t size);
 
